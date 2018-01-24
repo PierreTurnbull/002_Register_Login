@@ -76,8 +76,8 @@ var_dump($_SESSION);
 <body>
     <form class="form_connect" action="ACTION/ACTION_login.php" method="POST">
         <h2>LOGIN</h2>
-        <label for="pseudo">Pseudo:</label>
-        <input type="text" name="pseudo"   placeholder="Type in your pseudo">
+        <label for="username">Username:</label>
+        <input type="text" name="username"   placeholder="Type in your username">
         <label for="password">Password:</label>
         <input type="text" name="password" placeholder="Type in your password">
         <input type="submit" value="Connect">
