@@ -55,7 +55,6 @@ if (!isset($_POST) || !isset($_POST["username"]) || !isset($_POST["password"])) 
 $i = 0;
 while ($i < count($data)) {
     if ($data[$i][0] == $_POST["username"]) {
-        //TODO
         $_SESSION["errors"]["register"][] = "This username already exists";
         header("Location: ../index.php");
         exit;
