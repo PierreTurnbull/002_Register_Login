@@ -11,12 +11,11 @@ $query  = "SELECT * FROM data";
 $stmt   = $server->prepare($query);
 $stmt->execute();
 $data   = $stmt->get_result()->fetch_all();
-var_dump($data);
 
 function check_username($username, $data) {
     $i = 0;
     while ($data[$i] != null) {
-        if ($data[$i][1] == $username) {
+        if ($data[$i][0] == $username) {
             return true;
         }
         $i++;
@@ -27,7 +26,7 @@ function check_username($username, $data) {
 function check_password($username, $password, $data) {
     $i = 0;
     while ($data[$i] != null) {
-        if ($data[$i][1] == "$username" && $data[$i][2] == $password) {
+        if ($data[$i][0] == "$username" && password_verify($password, $data[$i][1])) {
             return true;
         }
         $i++;
@@ -61,6 +60,9 @@ if (!isset($_POST) || !isset($_POST["username"]) || !isset($_POST["password"])) 
     exit;
 }
 
-header("Location: ../index.php");
+// IF LOGIN IS SUCCESFUL
+var_dump($_SESSION["current_user"]);
+$_SESSION["current_user"] = $_POST["username"];
+header("Location: ../home.php");
 
 ?>
