@@ -6,5 +6,5 @@
 - register (prepared statements)
 - BLOWFISH encryption
 - input checks
-- error handling and diplaying
+- error handling and displaying
 - home page that only a connected user can see
